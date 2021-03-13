@@ -6,7 +6,7 @@ module.exports = {
       summary: `Hi, I'm Anton. I am building Meetter, a tool that keeps meeting fatigue away from dozens of remote teams scattered across the globe.`,
     },
     description: `Come check out Anton's tips & tricks learned while building Meetter.`,
-    siteUrl: `https://adosov.gatsbyjs.io/`,
+    siteUrl: `https://adosov.dev/`,
     social: {
       twitter: `antondosov`,
     },
