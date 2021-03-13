@@ -115,7 +115,14 @@ module.exports = {
         icon: `src/images/icon.png`, // This path is relative to the root of the site. // TODO
       },
     },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://adosov.dev/`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-gatsby-cloud`,
   ],
+
 }
