@@ -36,18 +36,20 @@ const Bio = () => {
         className="bio-avatar"
         layout="fixed"
         formats={["AUTO", "WEBP", "AVIF"]}
-        src="../images/profile-pic.png"
+        src="../images/ad.jpg"
         width={50}
         height={50}
         quality={95}
         alt="Profile picture"
       />
-      {author?.name && (
+      {author?.summary && (
         <p>
-          Written by <strong>{author.name}</strong> {author?.summary || null}
-          {` `}
+          Hi, I'm <strong>Anton</strong>.
+          <br/>
+          I am building <a href={'https://meetter.app'} target={"_blank"}>Meetter</a>, a tool that keeps meeting fatigue away from dozens of remote teams scattered across the globe.
+          <br/>
           <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
+            You can follow my journey on Twitter.
           </a>
         </p>
       )}
