@@ -46,11 +46,11 @@ const Bio = () => {
         <p>
           Hi, I'm <strong>Anton</strong>.
           <br/>
-          I am building <a href={'https://meetter.app'} target={"_blank"}>Meetter</a>, a tool that keeps meeting fatigue away from dozens of remote teams scattered across the globe.
+          I am building <a href={'https://meetter.app'}>Meetter</a>, a tool that keeps meeting fatigue away from dozens of remote teams scattered across the globe.
           <br/>
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You can follow my journey on Twitter.
-          </a>
+          I work on <a href={'https://github.com/elastic/kibana'}>Kibana</a> <a href={'https://twitter.com/elastic'}>@elastic</a>.
+          <br/>
+          You can follow my journey on <a href={`https://twitter.com/${social?.twitter || ``}`}>Twitter</a>.
         </p>
       )}
     </div>
