@@ -25,10 +25,10 @@ const Layout = ({ location, title, children }) => {
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>
-        <a href="https://meetter.app">meetter</a> •
-        <a href="https://twitter.com/antondosov">twitter</a> •
-        <a href="https://www.linkedin.com/in/antondosov/">linkedin</a> •
-        <a href="https://github.com/Dosant">github</a>
+        <a href="https://www.remeet.com/">Remeet</a> •
+        <a href="https://twitter.com/antondosov">Twitter</a> •
+        <a href="https://www.linkedin.com/in/antondosov/">Linkedin</a> •
+        <a href="https://github.com/Dosant">Github</a>
       </footer>
     </div>
   )

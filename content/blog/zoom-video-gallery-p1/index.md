@@ -1,16 +1,17 @@
 ---
-title: Building a video gallery just like in Zoom
+title: Building a video gallery just like in Zoom 🎥
 date: "2020-06-01T22:40:32.169Z"
 description: How to build an auto-resizable and flexible video-gallery layout similar to the you've seen in Zoom
 ---
 
 ## Update
-I posted a fun **part 2**, where I am building the same UI using experimental CSS Layout API from CSS Houdini 🎩. 
+
+I posted a fun **part 2**, where I am building the same UI using experimental CSS Layout API from CSS Houdini 🎩.
 
 [Check it out!](../zoom-video-gallery-p2)
 
-
 ## TLDR
+
 Complete solution is [here](https://codesandbox.io/s/zoom-video-gallery-600ks). Change videos count and resize the screen to see it in action.
 
 <iframe src="https://codesandbox.io/embed/zoom-video-gallery-600ks?fontsize=14&hidenavigation=1&runonclick=1&view=preview"
@@ -20,21 +21,21 @@ allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation
 sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
 
-
-----
+---
 
 ## Intro
 
 Hi folks 👋
 
-I had to build a video gallery view similar to the one ZOOM has for Meetter.
+I had to build a video gallery view similar to the one ZOOM has for [Remeet](https://www.remeet.com).
 
 I've spent quite a bit of time trying to figure out how to build it with pure CSS and I... FAILED 😕.
 
 Sharing my current solution with
-* a bit of JavaScript
-* CSS custom properties
-* `display: flex`
+
+- a bit of JavaScript
+- CSS custom properties
+- `display: flex`
 
 If someone has an idea on how to achieve similar result without using JavaScript, please share 🙏
 
@@ -50,12 +51,12 @@ First I needed to make sure videos are not overflowing the container and occupyi
 
 ```ts
 function calculateLayout(
-    containerWidth: number,
-    containerHeight: number,
-    videoCount: number,
-    aspectRatio: number
-  ): { width: number; height: number, cols: number } {
- // see implementation in codesandbox
+  containerWidth: number,
+  containerHeight: number,
+  videoCount: number,
+  aspectRatio: number
+): { width: number; height: number; cols: number } {
+  // see implementation in codesandbox
 }
 ```
 
@@ -71,6 +72,7 @@ for (let cols = 1; cols <= videoCount; cols++) {
    }
 }
 ```
+
 > There is also a npm module that does just that! [github](https://github.com/fzembow/rect-scaler)
 
 > But is there a better way then brute-force? Does it worth it if we assume the maximum `videoCount` is 50? 🤔
@@ -104,13 +106,13 @@ I applied calculated `width` and `height` to `.video-container`.
 I used CSS custom properties to pass values calculated in JavaScript.
 
 ```ts
-const gallery = document.getElementById('gallery');
-gallery.style.setProperty("--width", width + "px");
-gallery.style.setProperty("--height", height + "px");
-gallery.style.setProperty("--cols", cols + "");
+const gallery = document.getElementById("gallery")
+gallery.style.setProperty("--width", width + "px")
+gallery.style.setProperty("--height", height + "px")
+gallery.style.setProperty("--cols", cols + "")
 ```
 
-> ⚠️  Don't forget to recalculate these values when the screen size or number of videos changes.
+> ⚠️ Don't forget to recalculate these values when the screen size or number of videos changes.
 
 Then I used `display: flex` to layout `.video-container` elements
 
@@ -121,7 +123,7 @@ Then I used `display: flex` to layout `.video-container` elements
   flex-wrap: wrap;
   max-width: calc(var(--width) * var(--cols));
 }
-``` 
+```
 
 As `.video-container` sizes are calculated to fit into the container, I didn't have to worry about anything else here.
 I also found `justify-content: center;` to work best for the use case, as it nicely centers not fully filled rows.
@@ -149,12 +151,11 @@ For example, changing the ratio of a container from `16:9` to `1:1` doesn't dist
 
 ![Different aspect ratio](./aspect-ratios.png)
 
-
 ### Result
 
 This is how it looks in the real world:
 
-![Screenshot from Meetter with grid layout](./final.png)
+![Screenshot from Remeet with grid layout](./final.png)
 
 Check out the complete solution [here](https://codesandbox.io/s/zoom-video-gallery-600ks). Change videos count and resize the screen to see it in action.
 
@@ -169,13 +170,3 @@ sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-ori
 
 1. Is it possible to achieve a similar result without calculating video size in JavaScript? 🤔
 2. Is there a better way of calculating video sizes than brute-force search? Is it worth it if a number of videos can't exceed 50? 🤔
-
-
-
-
-
-
-
-
-
-
